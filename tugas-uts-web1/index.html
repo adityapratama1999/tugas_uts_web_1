@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="assets/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700;800&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <title>Masuk | Rak Buku</title>
+</head>
+<body data-page="login" class="page-login">
+  <main class="login-layout">
+    <!-- Panel kiri: dekorasi punggung buku (hanya hiasan) -->
+    <section class="login-art" aria-hidden="true">
+      <div class="spines">
+        <span style="--h:62%;--c:#f2b01e"></span><span style="--h:78%;--c:#f4f6fa"></span><span style="--h:54%;--c:#1f7a6d"></span>
+        <span style="--h:88%;--c:#c8553d"></span><span style="--h:70%;--c:#f4f6fa"></span><span style="--h:94%;--c:#f2b01e"></span>
+        <span style="--h:58%;--c:#355c7d"></span><span style="--h:82%;--c:#f4f6fa"></span><span style="--h:66%;--c:#1f7a6d"></span>
+        <span style="--h:76%;--c:#f2b01e"></span><span style="--h:90%;--c:#c8553d"></span><span style="--h:60%;--c:#f4f6fa"></span>
+      </div>
+    </section>
+
+    <section class="login-panel" aria-labelledby="judulLogin">
+      <img src="assets/logo.png" alt="Logo Rak Buku" width="48" height="48" class="logo">
+      <h1 id="judulLogin">Masuk ke Rak Buku</h1>
+      <p class="lead">Pesan buku, lalu lacak pengirimannya dari satu tempat.</p>
+
+      <form id="formLogin" novalidate>
+        <div class="field">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" autocomplete="username" placeholder="nama@email.com" required>
+          <p class="error" id="errEmail" role="alert"></p>
+        </div>
+        <div class="field">
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" autocomplete="current-password" required>
+          <p class="error" id="errPassword" role="alert"></p>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Login</button>
+      </form>
+
+      <div class="login-links">
+        <button type="button" class="link-btn" id="btnLupa">Lupa Password</button>
+        <button type="button" class="link-btn" id="btnDaftar">Daftar</button>
+      </div>
+      <p class="hint"></p>
+    </section>
+  </main>
+
+  <!-- Modal: Lupa Password -->
+  <dialog id="modalLupa" aria-labelledby="judulLupa">
+    <form id="formLupa" class="modal-body" novalidate>
+      <h2 id="judulLupa">Lupa password</h2>
+      <p>Masukkan email akun Anda. Kami akan menampilkan petunjuk reset (simulasi, tanpa server).</p>
+      <div class="field">
+        <label for="emailLupa">Email terdaftar</label>
+        <input type="email" id="emailLupa" required>
+        <p class="error" id="errLupa" role="alert"></p>
+      </div>
+      <p class="msg-ok" id="okLupa" role="status"></p>
+      <div class="modal-actions">
+        <button type="button" class="btn btn-ghost" data-close>Batal</button>
+        <button type="submit" class="btn btn-primary">Kirim petunjuk reset</button>
+      </div>
+    </form>
+  </dialog>
+
+  <!-- Modal: Daftar -->
+  <dialog id="modalDaftar" aria-labelledby="judulDaftar">
+    <form id="formDaftar" class="modal-body" novalidate>
+      <h2 id="judulDaftar">Buat akun baru</h2>
+      <div class="field">
+        <label for="regNama">Nama lengkap</label>
+        <input type="text" id="regNama" autocomplete="name" required>
+        <p class="error" id="errRegNama" role="alert"></p>
+      </div>
+      <div class="field">
+        <label for="regEmail">Email</label>
+        <input type="email" id="regEmail" autocomplete="email" required>
+        <p class="error" id="errRegEmail" role="alert"></p>
+      </div>
+      <div class="field">
+        <label for="regPassword">Password (minimal 6 karakter)</label>
+        <input type="password" id="regPassword" autocomplete="new-password" required>
+        <p class="error" id="errRegPassword" role="alert"></p>
+      </div>
+      <div class="field">
+        <label for="regKonfirmasi">Ulangi password</label>
+        <input type="password" id="regKonfirmasi" autocomplete="new-password" required>
+        <p class="error" id="errRegKonfirmasi" role="alert"></p>
+      </div>
+      <div class="modal-actions">
+        <button type="button" class="btn btn-ghost" data-close>Batal</button>
+        <button type="submit" class="btn btn-primary">Daftar</button>
+      </div>
+    </form>
+  </dialog>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="js/data.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="assets/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700;800&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <title>Dashboard | Rak Buku</title>
+</head>
+<body data-page="dashboard">
+  <header id="navbar" class="navbar"></header>
+
+  <main class="container">
+    <section class="hero" aria-labelledby="salam">
+      <p id="tanggalSekarang" class="muted"></p>
+      <h1 id="salam"></h1>
+      <p class="lead">Mau melakukan apa hari ini?</p>
+    </section>
+
+    <nav class="menu-grid" aria-label="Menu utama">
+      <a class="menu-btn" href="stok.html">
+        <strong>Informasi Stok/Katalog</strong>
+        <span>Lihat buku yang tersedia, tambah stok baru, dan pesan.</span>
+      </a>
+      <a class="menu-btn" href="tracking.html">
+        <strong>Tracking Pengiriman</strong>
+        <span>Cek posisi paket dengan nomor Delivery Order.</span>
+      </a>
+      <button type="button" class="menu-btn" data-panel="panelLaporan" aria-expanded="false" aria-controls="panelLaporan">
+        <strong>Laporan Pemesanan</strong>
+        <span>Ringkasan buku terjual dan pendapatan.</span>
+      </button>
+      <button type="button" class="menu-btn" data-panel="panelHistory" aria-expanded="false" aria-controls="panelHistory">
+        <strong>History Transaksi</strong>
+        <span>Daftar semua pesanan yang pernah dibuat.</span>
+      </button>
+    </nav>
+
+    <section id="panelLaporan" class="panel" aria-labelledby="judulLaporan" hidden>
+      <h2 id="judulLaporan">Laporan Pemesanan</h2>
+      <div class="table-wrap">
+        <table>
+          <caption class="sr-only">Ringkasan penjualan per judul buku</caption>
+          <thead><tr><th scope="col">Judul buku</th><th scope="col" class="num">Terjual</th><th scope="col" class="num">Pendapatan</th></tr></thead>
+          <tbody id="tbodyLaporan"></tbody>
+          <tfoot id="tfootLaporan"></tfoot>
+        </table>
+      </div>
+    </section>
+
+    <section id="panelHistory" class="panel" aria-labelledby="judulHistory" hidden>
+      <h2 id="judulHistory">History Transaksi</h2>
+      <div class="table-wrap">
+        <table>
+          <caption class="sr-only">Daftar transaksi pemesanan</caption>
+          <thead>
+            <tr><th scope="col">No. DO</th><th scope="col">Tanggal</th><th scope="col">Pemesan</th><th scope="col" class="num">Total</th><th scope="col">Status</th></tr>
+          </thead>
+          <tbody id="tbodyHistory"></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer"><p>Rak Buku &mdash; tugas UTS Pemrograman Web 1</p></footer>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="js/data.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>

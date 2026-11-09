@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="assets/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700;800&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <title>Tracking Pengiriman | Rak Buku</title>
+</head>
+<body data-page="tracking">
+  <header id="navbar" class="navbar"></header>
+
+  <main class="container narrow">
+    <h1>Tracking Pengiriman</h1>
+    <p class="lead">Masukkan nomor Delivery Order untuk melihat status paket.</p>
+
+    <form id="formCari" class="search-row" novalidate>
+      <div class="field grow">
+        <label for="nomorDO">Nomor Delivery Order</label>
+        <input type="text" id="nomorDO" placeholder="DO-20261103-002" autocomplete="off" required>
+        <p class="error" id="errDO" role="alert"></p>
+      </div>
+      <button type="submit" class="btn btn-primary">Cari</button>
+    </form>
+    <p class="hint">Contoh nomor: DO-20261028-001, DO-20261103-002, DO-20261106-003</p>
+
+    <section id="hasil" class="panel" aria-labelledby="judulHasil" aria-live="polite" hidden>
+      <h2 id="judulHasil">Hasil pelacakan</h2>
+
+      <dl class="detail">
+        <div><dt>Nama pemesan</dt><dd id="hPemesan"></dd></div>
+        <div><dt>Status pengiriman</dt><dd><span id="hStatus" class="badge-status"></span></dd></div>
+      </dl>
+
+      <div class="progress" role="progressbar" aria-label="Progres pengiriman" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="progressBar">
+        <div class="progress-fill" id="progressFill"></div>
+      </div>
+      <ol class="steps" id="daftarTahap"></ol>
+
+      <h3>Detail ekspedisi</h3>
+      <div class="table-wrap">
+        <table>
+          <tbody>
+            <tr><th scope="row">Ekspedisi</th><td id="hEkspedisi"></td></tr>
+            <tr><th scope="row">Jenis paket</th><td id="hPaket"></td></tr>
+            <tr><th scope="row">Tanggal kirim</th><td id="hTanggal"></td></tr>
+            <tr><th scope="row">Alamat tujuan</th><td id="hAlamat"></td></tr>
+            <tr><th scope="row">Isi paket</th><td id="hItems"></td></tr>
+            <tr><th scope="row">Total pembayaran</th><td id="hTotal"></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <p id="tidakDitemukan" class="empty" role="alert" hidden></p>
+  </main>
+
+  <footer class="footer"><p>Rak Buku &mdash; tugas UTS Pemrograman Web 1</p></footer>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="js/data.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>

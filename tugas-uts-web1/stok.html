@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="assets/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700;800&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <title>Informasi Stok | Rak Buku</title>
+</head>
+<body data-page="stok">
+  <header id="navbar" class="navbar"></header>
+
+  <main class="container">
+    <h1>Informasi Stok/Katalog</h1>
+    <p id="ringkasanStok" class="muted" aria-live="polite"></p>
+
+    <section class="toolbar" aria-label="Cari dan saring buku">
+      <div class="field">
+        <label for="cari">Cari judul atau penulis</label>
+        <input type="search" id="cari" placeholder="Misal: JavaScript">
+      </div>
+      <div class="field">
+        <label for="filterKategori">Kategori</label>
+        <select id="filterKategori"><option value="">Semua kategori</option></select>
+      </div>
+    </section>
+
+    <section class="panel" aria-labelledby="judulTabel">
+      <h2 id="judulTabel" class="sr-only">Daftar buku</h2>
+      <div class="table-wrap">
+        <table id="tabelStok">
+          <thead>
+            <tr>
+              <th scope="col">Cover</th><th scope="col">Judul</th><th scope="col">Kategori</th>
+              <th scope="col" class="num">Harga</th><th scope="col" class="num">Stok</th><th scope="col">Aksi</th>
+            </tr>
+          </thead>
+          <tbody id="tbodyStok"></tbody>
+        </table>
+      </div>
+      <p id="kosong" class="empty" hidden>Tidak ada buku yang cocok. Ubah kata kunci atau kategori.</p>
+    </section>
+
+    <section class="panel" aria-labelledby="judulTambah">
+      <h2 id="judulTambah">Tambah baris stok baru</h2>
+      <form id="formTambah" class="grid-form" novalidate>
+        <div class="field">
+          <label for="inJudul">Judul buku</label>
+          <input type="text" id="inJudul" required>
+          <p class="error" id="errJudul" role="alert"></p>
+        </div>
+        <div class="field">
+          <label for="inPenulis">Penulis</label>
+          <input type="text" id="inPenulis" required>
+          <p class="error" id="errPenulis" role="alert"></p>
+        </div>
+        <div class="field">
+          <label for="inKategori">Kategori</label>
+          <select id="inKategori" required>
+            <option value="">Pilih kategori</option>
+            <option>Web</option><option>Desain</option><option>Dasar</option><option>Kolaborasi</option><option>Lainnya</option>
+          </select>
+          <p class="error" id="errKategori" role="alert"></p>
+        </div>
+        <div class="field">
+          <label for="inHarga">Harga (Rp)</label>
+          <input type="number" id="inHarga" min="1000" step="500" required>
+          <p class="error" id="errHarga" role="alert"></p>
+        </div>
+        <div class="field">
+          <label for="inStok">Jumlah stok</label>
+          <input type="number" id="inStok" min="0" max="9999" required>
+          <p class="error" id="errStok" role="alert"></p>
+        </div>
+        <div class="field align-end">
+          <button type="submit" class="btn btn-primary">Tambah ke tabel</button>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <footer class="footer"><p>Rak Buku &mdash; tugas UTS Pemrograman Web 1</p></footer>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="js/data.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>
